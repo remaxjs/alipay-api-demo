@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View } from 'remax/alipay';
 import Tabs from 'remax-antui/lib/tabs';
+import './index.css';
 
 const { TabContent } = Tabs;
 

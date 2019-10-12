@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { View } from 'remax/alipay';
-import Tabs from 'remax-antui/lib/tabs';
+import Tabs from 'mini-antui/es/tabs';
+import TabContent from 'mini-antui/es/tabs/tab-content';
 import './index.css';
-
-const { TabContent } = Tabs;
 
 export default class TabsPage extends React.Component {
   state = {
@@ -54,10 +53,10 @@ export default class TabsPage extends React.Component {
           onChange={this.handleTabChange}
           onPlusClick={this.handlePlusClick}
           activeTab={activeTab}
-          swipeable
+          swipeable={false}
         >
           {tabs.map((tab, index) => (
-            <TabContent key={index} tabKey={index.toString()}>
+            <TabContent key={index.toString()} tabId={index.toString()} swipeable>
               <View className="tab-content">content of {tab.title}</View>
             </TabContent>
           ))}

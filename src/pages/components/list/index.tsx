@@ -1,11 +1,8 @@
 import * as React from 'react';
 import { View, ScrollView } from 'remax/alipay';
-import { List } from 'remax-antui';
+import List from 'mini-antui/es/list';
+import ListItem from 'mini-antui/es/list/list-item';
 import './index.css';
-
-const { ListItem } = List;
-
-console.log(ListItem);
 
 const newitems = [
   {
@@ -260,20 +257,18 @@ export default class ListPage extends React.Component {
     return (
       <View>
         <ScrollView style={{ height: '100vh' }} scrollY onScrollToLower={this.onScrollToLower}>
-          <List header={<View>列表头部</View>} footer={<View>列表尾部</View>}>
+          <List>
+            <View slot="header">列表头部</View>
             {items.map((item, index) => (
-              <ListItem
-                index={index}
-                onClick={this.onItemClick}
-                key={index}
-                last={index === items.length - 1}
-                extra={<View>{item.extra}</View>}
-              >
-                {item.title}
+              <ListItem index={index} onClick={this.onItemClick} key={index} last={index === items.length - 1}>
+                <View slot="extra">{item.extra}</View>
+                <View>{item.title}</View>
               </ListItem>
             ))}
+            <View slot="footer">列表尾部</View>
           </List>
-          <List header={<View>列表头部</View>} footer={<View>列表尾部</View>}>
+          <List>
+            <View slot="header">列表头部</View>
             {items2.map((item, index) => (
               <ListItem
                 arrow={item.arrow}
@@ -285,8 +280,10 @@ export default class ListPage extends React.Component {
                 {item.title}
               </ListItem>
             ))}
+            <View slot="footer">列表尾部</View>
           </List>
-          <List header={<View>列表头部</View>} footer={<View>列表尾部</View>}>
+          <List>
+            <View slot="header">列表头部</View>
             {items3.map((item, index) => (
               <ListItem
                 arrow={item.arrow}
@@ -299,8 +296,10 @@ export default class ListPage extends React.Component {
                 {item.title}
               </ListItem>
             ))}
+            <View slot="footer">列表尾部</View>
           </List>
-          <List header={<View>列表头部</View>} footer={<View>列表尾部</View>}>
+          <List>
+            <View slot="header">列表头部</View>
             {items4.map((item, index) => (
               <ListItem
                 arrow={item.arrow}
@@ -313,8 +312,10 @@ export default class ListPage extends React.Component {
                 {item.title}
               </ListItem>
             ))}
+            <View slot="footer">列表尾部</View>
           </List>
-          <List header={<View>小图文列表</View>}>
+          <List>
+            <View slot="header">小图文列表</View>
             {itemsThumb.map((item, index) => (
               <ListItem
                 thumb={item.thumb}
@@ -323,13 +324,14 @@ export default class ListPage extends React.Component {
                 index={index}
                 last={index === itemsThumb.length - 1}
                 key={index}
-                extra={<View>{item.extra}</View>}
               >
-                {item.title}
+                <View slot="extra">{item.extra}</View>
+                <View>{item.title}</View>
               </ListItem>
             ))}
           </List>
-          <List header={<View>小图文双行列表</View>}>
+          <List>
+            <View slot="header">小图文双行列表</View>
             {itemsThumbMultiple.map((item, index) => (
               <ListItem
                 thumb={item.thumb}
@@ -343,7 +345,8 @@ export default class ListPage extends React.Component {
               </ListItem>
             ))}
           </List>
-          <List header={<View>无限滚动列表</View>} footer={<View>列表尾部</View>}>
+          <List>
+            <View slot="header">无限滚动列表</View>
             {items5.map((item, index) => (
               <ListItem
                 className={item.sticky ? 'am-list-sticky' : ''}
@@ -356,12 +359,15 @@ export default class ListPage extends React.Component {
                 onClick={this.onItemClick}
                 disabled={item.sticky}
                 wrap
-                extra={<View>{item.extra}</View>}
               >
-                {item.title}
-                {index}
+                <View slot="extra">{item.extra}</View>
+                <View>
+                  {item.title}
+                  {index}
+                </View>
               </ListItem>
             ))}
+            <View slot="footer">列表尾部</View>
           </List>
         </ScrollView>
       </View>

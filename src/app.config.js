@@ -1,10 +1,8 @@
 module.exports = {
   pages: [
-    'pages/components/list/index',
-    'pages/components/modal/index',
     'pages/components/tabs/index',
-    'pages/components/picker-view/index',
-    'pages/components/picker/index',
+    'pages/components/modal/index',
+    'pages/components/list/index',
   ],
   window: {
     defaultTitle: 'Remax Alipay Template',

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Button, Image } from 'remax/alipay';
-import Modal from 'remax-antui/lib/modal';
+import Modal from 'mini-antui/es/modal';
 import './index.css';
 
 export default class ModalPage extends React.Component {
@@ -143,10 +143,10 @@ export default class ModalPage extends React.Component {
           onModalClick={this.onModalClick21}
           onModalClose={this.onModalClose21}
           topImage="https://gw.alipayobjects.com/zos/rmsportal/yFeFExbGpDxvDYnKHcrs.png"
-          header={<View>标题单行</View>}
-          footer={<View>确定</View>}
         >
-          说明当前状态、提示用户解决方案，最好不要超过两行。
+          <View slot="header">标题单行</View>
+          <View>说明当前状态、提示用户解决方案，最好不要超过两行。</View>
+          <View slot="footer">确定</View>
         </Modal>
         <Modal
           show={modalOpened2}
@@ -155,10 +155,10 @@ export default class ModalPage extends React.Component {
           topImage="https://gw.alipayobjects.com/zos/rmsportal/yFeFExbGpDxvDYnKHcrs.png"
           topImageSize="lg"
           closeType="1"
-          header={<View>标题单行</View>}
-          footer={<View>确定</View>}
         >
-          说明当前状态、提示用户解决方案，最好不要超过两行。
+          <View slot="header">标题单行</View>
+          <View>说明当前状态、提示用户解决方案，最好不要超过两行。</View>
+          <View slot="footer">确定</View>
         </Modal>
         <Modal
           show={modalOpened22}
@@ -166,24 +166,20 @@ export default class ModalPage extends React.Component {
           onModalClose={this.onModalClose22}
           topImage="https://gw.alipayobjects.com/zos/rmsportal/yFeFExbGpDxvDYnKHcrs.png"
           topImageSize="sm"
-          header={<View>标题单行</View>}
-          footer={<View>确定</View>}
         >
-          说明当前状态、提示用户解决方案，最好不要超过两行。
+          <View slot="header">标题单行</View>
+          <View>说明当前状态、提示用户解决方案，最好不要超过两行。</View>
+          <View slot="footer">确定</View>
         </Modal>
-        <Modal
-          show={modalOpened}
-          onModalClick={this.onModalClick}
-          onModalClose={this.onModalClose}
-          footer={<View>确定</View>}
-        >
+        <Modal show={modalOpened} onModalClick={this.onModalClick} onModalClose={this.onModalClose}>
           <View style={{ margin: '20px 0 10px 0;' }}>让员工用支付宝扫一扫，添加为店员</View>
           <Image
             mode="widthFix"
             style={{ width: '100%' }}
             src="https://tfsimg.alipay.com/images/mobilecodec/TB1JjWmXkyEDuNjme6tXXXIKXXa"
           />
-          二维码每分钟自动更新
+          <View>二维码每分钟自动更新</View>
+          <View slot="footer">确定</View>
         </Modal>
         <Modal show={modalOpened3} onModalClose={this.onModalClick3} advice>
           <View style={{ display: 'flex', height: '465px', width: '319px' }}>
